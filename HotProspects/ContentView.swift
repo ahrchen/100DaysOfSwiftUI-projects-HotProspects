@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var prospects = Prospects()
+    @StateObject var prospects: Prospects
+    
+    init() {
+        _prospects = StateObject(wrappedValue: Prospects())
+    }
     
     var body: some View {
         TabView {
