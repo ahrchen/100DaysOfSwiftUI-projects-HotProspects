@@ -5,9 +5,9 @@
 //  Created by Raymond Chen on 4/7/22.
 //
 
+import CodeScanner
 import SwiftUI
 
-import CodeScanner
 struct ProspectsView: View {
     
     @EnvironmentObject var prospects: Prospects
