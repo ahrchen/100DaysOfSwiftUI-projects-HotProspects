@@ -90,11 +90,11 @@ struct ProspectsView: View {
         case .success(let result):
             let details = result.string.components(separatedBy: "\n")
             guard details.count == 2 else { return }
-            
             let person = Prospect()
             person.name = details[0]
             person.emailAddress = details[1]
-            prospects.people.append(person)
+            prospects.add(person)
+            
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")
         }
