@@ -13,18 +13,25 @@ struct ProspectsView: View {
     
     @EnvironmentObject var prospects: Prospects
     @State private var isShowingScanner = false
+    @State private var isShowingSort = false
+    @State private var sortSelection: SortType
     
     enum FilterType {
         case none, contacted, uncontacted
     }
     
+    enum SortType {
+        case none, alphabetical, mostRecent
+    }
+    
     let filter: FilterType
     let contactedIcon = "person.crop.circle.fill.badge.checkmark"
     let uncontactedIcon = "person.crop.circle.badge.xmark"
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(filteredProspects) { prospect in
+                ForEach(sortedProspects) { prospect in
                     HStack {
                         VStack(alignment: .leading) {
                             Text(prospect.name)
@@ -64,17 +71,42 @@ struct ProspectsView: View {
             }
             .navigationTitle(title)
             .toolbar {
-                Button {
-                    isShowingScanner = true
-                } label : {
-                    Label("Scan", systemImage: "qrcode.viewfinder")
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isShowingScanner = true
+                    } label : {
+                        Label("Scan", systemImage: "qrcode.viewfinder")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        isShowingSort = true
+                    } label: {
+                        Label("Sort", systemImage: "line.3.horizontal.decrease")
+                    }
                 }
             }
             .sheet(isPresented: $isShowingScanner) {
                 CodeScannerView(codeTypes: [.qr], simulatedData: "Raymond Chen\nahrchen@gmail.com", completion: handleScan)
             }
+            .confirmationDialog("Sort Prospects", isPresented: $isShowingSort) {
+                Button("Alphabetical") {
+                    sortSelection = .alphabetical
+                }
+                Button("Most Recent") {
+                    sortSelection = .mostRecent
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("Select Sort")
+            }
         }
             
+    }
+    
+    init(filter: FilterType) {
+        self.filter = filter
+        self.sortSelection = .none
     }
     
     var title: String {
@@ -96,6 +128,19 @@ struct ProspectsView: View {
             return prospects.people.filter{ $0.isContacted }
         case .uncontacted:
             return prospects.people.filter{ !$0.isContacted }
+        }
+    }
+    
+    var sortedProspects: [Prospect] {
+        switch sortSelection {
+        case .none:
+            return filteredProspects
+        case .alphabetical:
+            return filteredProspects.sorted {
+                $0.name < $1.name
+            }
+        case .mostRecent:
+            return filteredProspects
         }
     }
     
