@@ -10,6 +10,7 @@
 		EE0433FD27FF68C1007D96EB /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0433FC27FF68C1007D96EB /* ProspectsView.swift */; };
 		EE0433FF27FF68C9007D96EB /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0433FE27FF68C9007D96EB /* MeView.swift */; };
 		EE04340127FF7AF5007D96EB /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04340027FF7AF5007D96EB /* Prospect.swift */; };
+		EE1B07682803DD3400BD89B4 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B07672803DD3400BD89B4 /* FileManager-DocumentsDirectory.swift */; };
 		EE1E66EA2802152300C65276 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1E66E92802152300C65276 /* ImageSaver.swift */; };
 		EE89E38927FE66F1002AECC9 /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = EE89E38827FE66F1002AECC9 /* SamplePackage */; };
 		EECBD0D627FCCF1300B71453 /* HotProspectsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECBD0D527FCCF1300B71453 /* HotProspectsApp.swift */; };
@@ -23,6 +24,7 @@
 		EE0433FC27FF68C1007D96EB /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
 		EE0433FE27FF68C9007D96EB /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 		EE04340027FF7AF5007D96EB /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
+		EE1B07672803DD3400BD89B4 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		EE1E66E92802152300C65276 /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		EECBD0D227FCCF1300B71453 /* HotProspects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotProspects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EECBD0D527FCCF1300B71453 /* HotProspectsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotProspectsApp.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				EE0433FE27FF68C9007D96EB /* MeView.swift */,
 				EE1E66E92802152300C65276 /* ImageSaver.swift */,
 				EE04340027FF7AF5007D96EB /* Prospect.swift */,
+				EE1B07672803DD3400BD89B4 /* FileManager-DocumentsDirectory.swift */,
 				EECBD0D927FCCF1600B71453 /* Assets.xcassets */,
 				EECBD0DB27FCCF1600B71453 /* Preview Content */,
 			);
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE0433FF27FF68C9007D96EB /* MeView.swift in Sources */,
+				EE1B07682803DD3400BD89B4 /* FileManager-DocumentsDirectory.swift in Sources */,
 				EE1E66EA2802152300C65276 /* ImageSaver.swift in Sources */,
 				EE04340127FF7AF5007D96EB /* Prospect.swift in Sources */,
 				EE0433FD27FF68C1007D96EB /* ProspectsView.swift in Sources */,

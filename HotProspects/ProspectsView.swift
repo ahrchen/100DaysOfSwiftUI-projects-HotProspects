@@ -19,30 +19,37 @@ struct ProspectsView: View {
     }
     
     let filter: FilterType
-    
+    let contactedIcon = "person.crop.circle.fill.badge.checkmark"
+    let uncontactedIcon = "person.crop.circle.badge.xmark"
     var body: some View {
         NavigationView {
             List {
                 ForEach(filteredProspects) { prospect in
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundColor(.secondary)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundColor(.secondary)
+                        }
+                        if filter == .none {
+                            Image(systemName: prospect.isContacted ? contactedIcon : uncontactedIcon )
+                                .foregroundColor(prospect.isContacted ? .green : .orange)
+                        }
                     }
                     .swipeActions {
                         if prospect.isContacted {
                             Button {
                                 prospects.toggle(prospect)
                             } label: {
-                                Label("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark")
+                                Label("Mark Uncontacted", systemImage: uncontactedIcon)
                             }
                             .tint(.blue)
                         } else {
                             Button {
                                 prospects.toggle(prospect)
                             } label : {
-                                Label("Mark Contacted", systemImage: "person.crop.circle.fill.badge.checkmark")
+                                Label("Mark Contacted", systemImage: contactedIcon)
                             }
                             .tint(.green)
                             Button {
